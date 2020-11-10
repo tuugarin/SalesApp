@@ -1,0 +1,11 @@
+﻿<div class="nopadding" id="alerts">
+    <div  uib-alert ng-repeat="alert in alerts" class="alert alert-warning" close="clearAlert($index)">
+       <span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp;<span ng-bind-html="alert">
+        </span>
+    </div>
+    <div uib-alert ng-repeat="info in infoes" class="alert alert-success" close="clearInfoes($index)">
+        <span ng-bind-html="info"></span>
+    </div>
+</div>
+
+

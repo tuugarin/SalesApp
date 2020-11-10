@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="webOffice" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="webOffice" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="webOffice" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="salesApp" class="no-js">
+<!--<![endif]-->
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sales App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+
+
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-sanitize/angular-sanitize.js"></script>
+
+    <script src="node_modules/ng-file-upload/dist/ng-file-upload.js"></script>
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+
+    <script src="www/app/login/login.js"></script>
+    <script src="www/app/main/main.js"></script>
+    <script src="www/app/sales/sales.dataservice.js"></script>
+    <script src="www/app/sales/sales.js"></script>
+
+    <script src="www/app/upload/upload.js"></script>
+    <script src="www/app/app.js"></script>
+    <script src="www/app/services/authInterceptorService.js"></script>
+    <script src="www/app/services/dataService.js"></script>
+    <script src="www/app/services/loadingBoxService.js"></script>
+    <script src="www/app/services/localStorageService.js"></script>
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="www/app/app.css" />
+    <link rel="stylesheet" href="www/app/spinner.css" />
+</head>
+<body  >
+    <div class="spinner-div" ng-if="isDataLoading" ng-cloak>
+        <div class="spinner">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
+        </div>
+        <div class="spinner-text">Loading...</div>
+    </div>
+    <div id="top" ng-if="!isRouteLoading" ng-cloak ui-view></div>
+
+    <footer ng-if="!isRouteLoading" ng-cloak class="footer text-center">
+                        <a href="mailto:i.tischenko@hotmail.com">by Igor Tischenko</a>
+    </footer>
+
+</body>
+
+</html>

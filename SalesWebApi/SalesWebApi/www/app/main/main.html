@@ -1,0 +1,35 @@
+﻿<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+    <a class="navbar-brand"  ui-sref="index">Sales App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" ui-sref="index">Main </a>
+            </li>
+            <li class="nav-item">
+                <a role="button" class="nav-link" ui-sref="index.sales">Sales</a>
+            </li>
+            <li class="nav-item">
+                <a role="button" class="nav-link" ui-sref="index.upload">Upload</a>
+            </li>
+            <li class="nav-item">
+                <a role="button" class="nav-link" ng-click="vm.logout()">Log out</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+    <div class="container" style="padding-top: 70px;">
+        <div ng-include="'www/app/templates/alerts_template.html'"></div>
+        <div ui-view>
+            <main role="main" class="container">
+                <div class="jumbotron">
+                    <h1>This is the main page</h1>
+                    <p class="lead">Please go to the Sales page to see the sales</p>
+                </div>
+                </main>
+        </div>
+    </div>

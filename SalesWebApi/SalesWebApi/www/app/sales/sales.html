@@ -1,0 +1,100 @@
+﻿
+<h2>Sales</h2>
+
+<input class="form-control" placeholder="Search by Country..." type="text" ng-model="vm.searchText" ng-change="vm.search()" />
+
+<br />
+<div class="justify-content-end">
+    <a title="Remove all items" class="text-decoration-none" style="cursor: pointer;" ng-click="vm.DeleteAll()">
+        Remove all items
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+            <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+        </svg>
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead class="thead-light">
+
+            <tr>
+                <th style="text-align:center; width:5%;">Region</th>
+                <th style="text-align:center; width:5%;">Country</th>
+                <th style="text-align:center; width:25%;">Item Type</th>
+                <th style="text-align:center; width:5%;">Sales Chanel</th>
+
+                <th style="text-align:center;width:5%;">Order Priority</th>
+                <th style="text-align:center;width:15%;">
+                    <a href="#">
+                        <span ng-click="vm.order()">Order Date</span>
+                        <span class="sortorder" ng-class="{reverse:vm.reverse}"></span>
+                    </a>
+                </th>
+                <th style="text-align:center;width:10%;">Order ID</th>
+                <th style="text-align:center;width:20%;">Ship Date</th>
+                <th style="text-align:center;width:10%;">Units Sold</th>
+                <th style="text-align:center;width:10%;">Unit Price</th>
+                <th style="text-align:center;width:10%;">Unit Cost</th>
+                <th style="text-align:center;width:10%;">Total Revenue</th>
+                <th style="text-align:center;width:10%;">Total Cost</th>
+                <th style="text-align:center;width:10%;">Total Profit</th>
+                <th />
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="row in vm.dislpayedCollection">
+                <td style="text-align:center;">{{row.region}}</td>
+                <td style="text-align:center;">{{row.country}}</td>
+                <td style="text-align:center;">{{row.itemType}}</td>
+                <td style="text-align:center;">{{row.salesChanel}}</td>
+                <td style="text-align:center;">{{row.orderPriority}}</td>
+                <td style="text-align:center;">{{row.orderDate | date:"dd.MM.yyyy"}}</td>
+                <td style="text-align:center;">{{row.orderId}}</td>
+                <td style="text-align:center;">{{row.shipDate | date:"dd.MM.yyyy" }}</td>
+                <td style="text-align:center;">{{row.unitsSold}}</td>
+                <td style="text-align:center;">{{row.unitPrice}}</td>
+                <td style="text-align:center;">{{row.unitCost}}</td>
+                <td style="text-align:center;">{{row.totalRevenue}}</td>
+                <td style="text-align:center;">{{row.totalCost}}</td>
+                <td style="text-align:center;">{{row.totalProfit}}</td>
+                <td>
+                    <a title="Remove item" class="text-decoration-none" style="cursor: pointer;" ng-click="vm.Delete(row)">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                            <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                        </svg>
+                    </a>
+                </td>
+        </tbody>
+        <tfoot>
+            <tr ng-if="vm.pagesLength > 1">
+                <td colspan="15">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item">
+                            <a class="page-link" ng-click="vm.MovePageBack()" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item" ng-class="{active:vm.startPage == vm.currentPage}" ng-click="vm.SelectPage(vm.startPage)">
+                            <a class="page-link">{{vm.startPage}}</a>
+                        </li>
+                        <li class="page-item" ng-class="{active:vm.middlePage == vm.currentPage}" ng-if="vm.pagesLength > 1" ng-click="vm.SelectPage(vm.middlePage)">
+                            <a class="page-link">{{vm.middlePage}}</a>
+                        </li>
+                        <li class="page-item" ng-class="{active:vm.lastPage == vm.currentPage}" ng-if="vm.pagesLength > 2" ng-click="vm.SelectPage(vm.lastPage)">
+                            <a class="page-link">{{vm.lastPage}}</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" aria-label="Next" ng-click="vm.MovePageForward()">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+</div>
